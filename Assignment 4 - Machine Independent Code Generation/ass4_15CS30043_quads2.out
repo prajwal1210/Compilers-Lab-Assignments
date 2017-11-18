@@ -1,0 +1,127 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(GLOBAL)                                                            
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+mult      FUNCTION                                          0         0         NIL                           ST(mult)            
+sum       FUNCTION                                          0         0         NIL                           ST(sum)             
+sumchar   FUNCTION                                          0         0         NIL                           ST(sumchar)         
+main      FUNCTION                                          0         0         NIL                           ST(main)            
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(mult)                                                              
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    DOUBLE                                            0         0         NIL                           NULL                
+a         INT                                               4         0         NIL                           NULL                
+b         INT                                               4         4         NIL                           NULL                
+prod      DOUBLE                                            8         8         NIL                           NULL                
+t0        INT                                               4         16        NIL                           NULL                
+t1        DOUBLE                                            8         20        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(sum)                                                               
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    INT                                               0         0         NIL                           NULL                
+a         DOUBLE                                            8         0         NIL                           NULL                
+b         DOUBLE                                            8         8         NIL                           NULL                
+c         INT                                               4         16        NIL                           NULL                
+t2        DOUBLE                                            8         20        NIL                           NULL                
+t3        INT                                               4         28        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(sumchar)                                                           
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    CHAR                                              0         0         NIL                           NULL                
+a         INT                                               4         0         NIL                           NULL                
+b         INT                                               4         4         NIL                           NULL                
+c         CHAR                                              1         8         NIL                           NULL                
+t4        INT                                               4         9         NIL                           NULL                
+t5        CHAR                                              1         13        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(main)                                                              
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    VOID                                              0         0         NIL                           NULL                
+a         INT                                               4         0         NIL                           NULL                
+b         INT                                               4         4         10                            NULL                
+t6        INT                                               4         8         10                            NULL                
+c         INT                                               4         12        NIL                           NULL                
+t7        INT                                               4         16        20                            NULL                
+x         DOUBLE                                            8         20        NIL                           NULL                
+y         DOUBLE                                            8         28        2.300000                      NULL                
+t8        DOUBLE                                            8         36        2.300000                      NULL                
+z         DOUBLE                                            8         44        1.000000                      NULL                
+t9        DOUBLE                                            8         52        1.000000                      NULL                
+t10       DOUBLE                                            8         60        NIL                           NULL                
+t11       INT                                               4         68        NIL                           NULL                
+schar     CHAR                                              1         72        NIL                           NULL                
+schar2    CHAR                                              1         73        NIL                           NULL                
+schar3    CHAR                                              1         74        NIL                           NULL                
+t12       CHAR                                              1         75        NIL                           NULL                
+t13       CHAR                                              1         76        NIL                           NULL                
+t14       INT                                               4         77        NIL                           NULL                
+t15       INT                                               4         81        NIL                           NULL                
+t16       CHAR                                              1         85        NIL                           NULL                
+d         INT                                               4         86        NIL                           NULL                
+t17       INT                                               4         90        4                             NULL                
+t18       INT                                               4         94        5                             NULL                
+t19       INT                                               4         98        NIL                           NULL                
+
+0000 : mult:
+0001 : t0 = a*b
+0002 : t1 = (double)t0
+0003 : prod = t1
+0004 : return prod
+0005 : sum:
+0006 : t2 = a+b
+0007 : t3 = (int)t2
+0008 : c = t3
+0009 : return c
+0010 : sumchar:
+0011 : t4 = a+b
+0012 : t5 = (char)t4
+0013 : c = t5
+0014 : return c
+0015 : main:
+0016 : t6 = 10
+0017 : b = t6
+0018 : t7 = 20
+0019 : a = t7
+0020 : t8 = 2.3
+0021 : y = t8
+0022 : t9 = 1
+0023 : z = t9
+0024 : param a
+0025 : param b
+0026 : t10 = call mult,2
+0027 : x = t10
+0028 : param y
+0029 : param z
+0030 : t11 = call sum,2
+0031 : c = t11
+0032 : param a
+0033 : param b
+0034 : t12 = call sumchar,2
+0035 : schar = t12
+0036 : param a
+0037 : param c
+0038 : t13 = call sumchar,2
+0039 : schar2 = t13
+0040 : t14 = (int)schar
+0041 : t15 = (int)schar2
+0042 : param t14
+0043 : param t15
+0044 : t16 = call sumchar,2
+0045 : schar3 = t16
+0046 : t17 = 4
+0047 : t18 = 5
+0048 : if t17<t18 goto 50
+0049 : goto 52
+0050 : t19 = 1
+0051 : goto 53
+0052 : t19 = 0
+0053 : d = t19
+0054 : return 

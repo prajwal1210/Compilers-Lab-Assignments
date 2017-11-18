@@ -1,0 +1,183 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(GLOBAL)                                                            
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+swapint   FUNCTION                                          0         0         NIL                           ST(swapint)         
+swapdoubleFUNCTION                                          0         0         NIL                           ST(swapdouble)      
+swapchar  FUNCTION                                          0         0         NIL                           ST(swapchar)        
+assign    FUNCTION                                          0         0         NIL                           ST(assign)          
+main      FUNCTION                                          0         0         NIL                           ST(main)            
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(swapint)                                                           
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    VOID                                              0         0         NIL                           NULL                
+a         POINTER(INT)                                      4         0         NIL                           NULL                
+b         POINTER(INT)                                      4         4         NIL                           NULL                
+temp      INT                                               4         8         NIL                           NULL                
+t0        INT                                               4         12        NIL                           NULL                
+t1        INT                                               4         16        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(swapdouble)                                                        
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    VOID                                              0         0         NIL                           NULL                
+a         POINTER(DOUBLE)                                   4         0         NIL                           NULL                
+b         POINTER(DOUBLE)                                   4         4         NIL                           NULL                
+temp      DOUBLE                                            8         8         NIL                           NULL                
+t2        DOUBLE                                            8         16        NIL                           NULL                
+t3        DOUBLE                                            8         24        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(swapchar)                                                          
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    VOID                                              0         0         NIL                           NULL                
+a         POINTER(CHAR)                                     4         0         NIL                           NULL                
+b         POINTER(CHAR)                                     4         4         NIL                           NULL                
+temp      CHAR                                              1         8         NIL                           NULL                
+t4        CHAR                                              1         9         NIL                           NULL                
+t5        CHAR                                              1         10        NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(assign)                                                            
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    POINTER(INT)                                      0         0         NIL                           NULL                
+a         INT                                               4         0         NIL                           NULL                
+p         POINTER(INT)                                      4         4         NIL                           NULL                
+t6        POINTER(INT)                                      4         8         NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(main)                                                              
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    INT                                               0         737       NIL                           NULL                
+a         INT                                               4         0         NIL                           NULL                
+b         POINTER(POINTER(INT))                             4         4         NIL                           NULL                
+t7        POINTER(INT)                                      4         8         NIL                           NULL                
+t8        POINTER(INT)                                      4         12        NIL                           NULL                
+t9        INT                                               4         16        NIL                           NULL                
+t10       INT                                               4         20        NIL                           NULL                
+t11       POINTER(INT)                                      4         24        NIL                           NULL                
+t12       INT                                               4         28        NIL                           NULL                
+t13       INT                                               4         32        NIL                           NULL                
+t14       POINTER(INT)                                      4         36        NIL                           NULL                
+t15       INT                                               4         40        NIL                           NULL                
+t16       INT                                               4         44        NIL                           NULL                
+t17       POINTER(INT)                                      4         48        NIL                           NULL                
+t18       INT                                               4         52        NIL                           NULL                
+t19       INT                                               4         56        NIL                           NULL                
+t20       POINTER(INT)                                      4         60        NIL                           NULL                
+t21       INT                                               4         64        NIL                           NULL                
+t22       INT                                               4         68        NIL                           NULL                
+t23       POINTER(INT)                                      4         72        NIL                           NULL                
+t24       INT                                               4         76        NIL                           NULL                
+t25       INT                                               4         80        NIL                           NULL                
+t26       POINTER(INT)                                      4         84        NIL                           NULL                
+t27       INT                                               4         88        NIL                           NULL                
+t28       INT                                               4         92        NIL                           NULL                
+t29       POINTER(INT)                                      4         96        NIL                           NULL                
+t30       INT                                               4         100       NIL                           NULL                
+t31       INT                                               4         104       NIL                           NULL                
+t32       POINTER(INT)                                      4         108       NIL                           NULL                
+t33       INT                                               4         112       NIL                           NULL                
+t34       INT                                               4         116       NIL                           NULL                
+t35       POINTER(INT)                                      4         120       NIL                           NULL                
+t36       INT                                               4         124       NIL                           NULL                
+t37       INT                                               4         128       NIL                           NULL                
+t38       INT                                               4         132       NIL                           NULL                
+t39       INT                                               4         136       NIL                           NULL                
+t40       INT                                               4         140       NIL                           NULL                
+t41       INT                                               4         144       NIL                           NULL                
+t42       POINTER(INT)                                      4         148       NIL                           NULL                
+t43       POINTER(INT)                                      4         152       NIL                           NULL                
+t44       VOID                                              0         156       NIL                           NULL                
+t45       INT                                               4         156       1                             NULL                
+
+0000 : swapint:
+0001 : t0 = *(a)
+0002 : temp = t0
+0003 : t1 = *(b)
+0004 : *(a) =t1
+0005 : *(b) =temp
+0006 : return 
+0007 : swapdouble:
+0008 : t2 = *(a)
+0009 : temp = t2
+0010 : t3 = *(b)
+0011 : *(a) =t3
+0012 : *(b) =temp
+0013 : return 
+0014 : swapchar:
+0015 : t4 = *(a)
+0016 : temp = t4
+0017 : t5 = *(b)
+0018 : *(a) =t5
+0019 : *(b) =temp
+0020 : return 
+0021 : assign:
+0022 : t6 = &addr(a)
+0023 : p = t6
+0024 : return p
+0025 : main:
+0026 : param a
+0027 : t7 = call assign,1
+0028 : *(b) =t7
+0029 : t8 = *(b)
+0030 : t9 = *(t8)
+0031 : t10 = t9+a
+0032 : a = t10
+0033 : t11 = *(b)
+0034 : t12 = *(t11)
+0035 : t13 = t12-a
+0036 : a = t13
+0037 : t14 = *(b)
+0038 : t15 = *(t14)
+0039 : t16 = t15<<a
+0040 : a = t16
+0041 : t17 = *(b)
+0042 : t18 = *(t17)
+0043 : t19 = t18>>a
+0044 : a = t19
+0045 : t20 = *(b)
+0046 : t21 = *(t20)
+0047 : t22 = t21&a
+0048 : a = t22
+0049 : t23 = *(b)
+0050 : t24 = *(t23)
+0051 : t25 = t24^a
+0052 : a = t25
+0053 : t26 = *(b)
+0054 : t27 = *(t26)
+0055 : t28 = t27|a
+0056 : a = t28
+0057 : t29 = *(b)
+0058 : t30 = *(t29)
+0059 : t31 = t30*a
+0060 : a = t31
+0061 : t32 = *(b)
+0062 : t33 = *(t32)
+0063 : t34 = t33/a
+0064 : a = t34
+0065 : t35 = *(b)
+0066 : t36 = *(t35)
+0067 : t37 = t36%a
+0068 : a = t37
+0069 : t38 = a
+0070 : a = a+1
+0071 : a = a+1
+0072 : t39 = a
+0073 : t40 = a
+0074 : a = a-1
+0075 : a = a-1
+0076 : t41 = a
+0077 : t42 = &addr(a)
+0078 : t43 = *(b)
+0079 : param t42
+0080 : param t43
+0081 : t44 = call swapint,2
+0082 : t45 = 1
+0083 : return t45

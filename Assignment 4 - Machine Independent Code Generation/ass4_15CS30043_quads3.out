@@ -1,0 +1,141 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(GLOBAL)                                                            
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+transpose FUNCTION                                          0         0         NIL                           ST(transpose)       
+sum       FUNCTION                                          0         0         NIL                           ST(sum)             
+mult      FUNCTION                                          0         0         NIL                           ST(mult)            
+main      FUNCTION                                          0         0         NIL                           ST(main)            
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(transpose)                                                         
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    MATRIX(2,3, double)                               0         0         NIL                           NULL                
+t0        INT                                               4         0         3                             NULL                
+t1        INT                                               4         4         2                             NULL                
+mat       MATRIX(3,2, double)                               56        8         NIL                           NULL                
+t2        INT                                               4         64        2                             NULL                
+t3        INT                                               4         68        3                             NULL                
+trans     MATRIX(2,3, double)                               56        72        NIL                           NULL                
+t4        MATRIX(2,3, double)                               56        128       NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(sum)                                                               
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    MATRIX(3,2, double)                               0         9         NIL                           NULL                
+t5        INT                                               4         0         3                             NULL                
+t6        INT                                               4         4         2                             NULL                
+a         MATRIX(3,2, double)                               56        8         NIL                           NULL                
+t7        INT                                               4         64        3                             NULL                
+t8        INT                                               4         68        2                             NULL                
+b         MATRIX(3,2, double)                               56        72        NIL                           NULL                
+t9        INT                                               4         128       3                             NULL                
+t10       INT                                               4         132       2                             NULL                
+res       MATRIX(3,2, double)                               56        136       NIL                           NULL                
+t11       MATRIX(3,2, double)                               56        192       NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(mult)                                                              
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    MATRIX(2,2, double)                               0         2         NIL                           NULL                
+t12       INT                                               4         0         2                             NULL                
+t13       INT                                               4         4         3                             NULL                
+a         MATRIX(2,3, double)                               56        8         NIL                           NULL                
+t14       INT                                               4         64        3                             NULL                
+t15       INT                                               4         68        2                             NULL                
+b         MATRIX(3,2, double)                               56        72        NIL                           NULL                
+t16       INT                                               4         128       2                             NULL                
+t17       INT                                               4         132       2                             NULL                
+res       MATRIX(2,2, double)                               40        136       NIL                           NULL                
+t18       MATRIX(2,2, double)                               40        176       NIL                           NULL                
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ST(main)                                                              
+Name      Type                                              Size      Offset    Initial Value                 Nested Table        
+------------------------------------------------------------------------------------------------------------------------------------------------------
+retval    INT                                               0         0         NIL                           NULL                
+t19       INT                                               4         0         3                             NULL                
+t20       INT                                               4         4         2                             NULL                
+m1        MATRIX(3,2, double)                               56        8         NIL                           NULL                
+t21       INT                                               4         64        2                             NULL                
+t22       INT                                               4         68        3                             NULL                
+m2        MATRIX(2,3, double)                               56        72        NIL                           NULL                
+t23       INT                                               4         128       2                             NULL                
+t24       INT                                               4         132       2                             NULL                
+mul       MATRIX(2,2, double)                               40        136       NIL                           NULL                
+t25       INT                                               4         176       2                             NULL                
+t26       INT                                               4         180       2                             NULL                
+m         MATRIX(2,2, double)                               40        184       NIL                           NULL                
+p         POINTER(DOUBLE)                                   4         224       NIL                           NULL                
+t27       INT                                               4         228       1                             NULL                
+t28       INT                                               4         232       1                             NULL                
+t29       INT                                               4         236       NIL                           NULL                
+t30       POINTER(DOUBLE)                                   4         240       NIL                           NULL                
+t31       MATRIX(2,3, double)                               56        244       NIL                           NULL                
+t32       MATRIX(2,2, double)                               40        300       NIL                           NULL                
+t33       MATRIX(3,2, double)                               56        340       NIL                           NULL                
+t34       INT                                               4         396       0                             NULL                
+
+0000 : transpose:
+0001 : t0 = 3
+0002 : t1 = 2
+0003 : t2 = 2
+0004 : t3 = 3
+0005 : t4 =mat.'
+0006 : trans = t4
+0007 : return trans
+0008 : sum:
+0009 : t5 = 3
+0010 : t6 = 2
+0011 : t7 = 3
+0012 : t8 = 2
+0013 : t9 = 3
+0014 : t10 = 2
+0015 : t11 = a+b
+0016 : res = t11
+0017 : return res
+0018 : mult:
+0019 : t12 = 2
+0020 : t13 = 3
+0021 : t14 = 3
+0022 : t15 = 2
+0023 : t16 = 2
+0024 : t17 = 2
+0025 : t18 = a*b
+0026 : res = t18
+0027 : return res
+0028 : main:
+0029 : t19 = 3
+0030 : t20 = 2
+0031 : t21 = 2
+0032 : t22 = 3
+0033 : t23 = 2
+0034 : t24 = 2
+0035 : t25 = 2
+0036 : t26 = 2
+0037 : t27 = 1
+0038 : t28 = 1
+0039 : t29 = m[4]
+0040 : t29 = t27*t29
+0041 : t29 = t29+t28
+0042 : t29 = t29*8
+0043 : t29 = t29+8
+0044 : t30 = &addr(m)
+0045 : t30 = t30+t29
+0046 : p = t30
+0047 : param m1
+0048 : t31 = call transpose,1
+0049 : m2 = t31
+0050 : param m2
+0051 : param m1
+0052 : t32 = call mult,2
+0053 : mul = t32
+0054 : param m1
+0055 : param m1
+0056 : t33 = call sum,2
+0057 : m1 = t33
+0058 : t34 = 0
+0059 : return t34
